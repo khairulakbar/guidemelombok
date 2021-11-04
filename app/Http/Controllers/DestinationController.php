@@ -13,9 +13,12 @@ class DestinationController extends Controller
         //$results = Destinations::orderBy('id', 'DESC')->get(['id', 'name_dest', 'latitude', 'longitude']);
 
         $results = Destinations::leftjoin('destination_details', 'destinations.id', '=', 'destination_details.id_dest')->get(['destinations.*','destination_details.description','destination_details.address','destination_details.entrance_ticket']);
-
-
-        return response()->json($results);
+        
+        return response()->json([
+            'status' => true,
+            'msg' => "Oke",
+            'dest_list' => $results
+        ]);
     }
 
     public function dest_search($name){
