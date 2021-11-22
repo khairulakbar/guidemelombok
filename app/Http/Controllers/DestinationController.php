@@ -30,6 +30,8 @@ class DestinationController extends Controller
         ->select(Destinations::raw('name_dest,latitude,longitude,description,address,entrance_ticket,
         (6371 * ACOS(SIN(RADIANS(latitude)) * SIN(RADIANS('."$lat".')) + COS(RADIANS(longitude - '."$lng".')) * COS(RADIANS(latitude)) * COS(RADIANS('."$lat".')))) AS jarak')
         )
+        ->havingRaw('jarak < 6371')
+        ->orderBy('jarak', 'ASC')
         ->get();
         return response()->json([
             'status' => true,
