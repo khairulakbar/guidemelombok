@@ -24,4 +24,5 @@ Route::post('/user', 'UserController@user');
 //Route::get('user', 'UserController@getAuthenticatedUser')->middleware('jwt.verify');
 
 Route::get('/destinations/{koordinat}','DestinationController@index');
+Route::get('/destinations/all/{koordinat}','DestinationController@alldestination');
 Route::get('/destinations/{name}', 'DestinationController@dest_search');
