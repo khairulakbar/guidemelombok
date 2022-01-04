@@ -23,6 +23,8 @@ Route::post('/login', 'UserController@login');
 Route::post('/user', 'UserController@user');
 //Route::get('user', 'UserController@getAuthenticatedUser')->middleware('jwt.verify');
 
-Route::get('/destinations/{koordinat}','DestinationController@index');
-Route::get('/destinations/all/{koordinat}','DestinationController@alldestination');
-Route::get('/destinations/{name}', 'DestinationController@dest_search');
+Route::get('/destinations/{koordinat}','DestinationController@neardestination');
+Route::get('/destinationnear/{koordinat}','DestinationController@nearme');
+Route::get('/destination/all','DestinationController@alldestination');
+Route::get('/destination/{name}', 'DestinationController@dest_search');
+Route::get('/destination/detail/{id}', 'DestinationController@dest_detail');
