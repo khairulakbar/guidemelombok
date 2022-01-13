@@ -17,6 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+/*
+
 Route::get('/admin/destinasi', 'AdminController@index');
 Route::get('/admin/destinasi/add', 'AdminController@add');
 Route::post('/admin/destinasi/store','AdminController@store');
@@ -25,3 +27,5 @@ Route::put('/admin/destinasi/update/{id}','AdminController@update');
 Route::get('/admin/destinasi/hapus/{id}','AdminController@hapus');
 
 Route::get('/admin/destinasi/tes/{id}','AdminController@tes');
+
+*/
