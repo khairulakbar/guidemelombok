@@ -144,10 +144,10 @@ class DestinationController extends Controller
 
     }
     
-    public function dest_detail($id){
+    public function dest_detail($slug){
 
         $results = Destinations::leftjoin('destination_details', 'destinations.id', '=', 'destination_details.id_dest')
-                    ->where('destinations.id','=',"$id")
+                    ->where('destinations.slug','=',"$slug")
                     ->get(['destinations.*','destination_details.description','destination_details.address','destination_details.entrance_ticket']);
 
         //return response()->json($results);
