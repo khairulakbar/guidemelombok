@@ -62,7 +62,7 @@ class DestinationController extends Controller
         */
 
         $results = Destinations::leftjoin('destination_details', 'destinations.id', '=', 'destination_details.id_dest')
-        ->select(Destinations::raw('destinations.id,name_dest,latitude,longitude,description,thumb_img,address,entrance_ticket,
+        ->select(Destinations::raw('destinations.id,name_dest,slug,latitude,longitude,description,thumb_img,address,entrance_ticket,
         (6371 * ACOS(SIN(RADIANS(latitude)) * SIN(RADIANS('."$lat".')) + COS(RADIANS(longitude - '."$lng".')) * COS(RADIANS(latitude)) * COS(RADIANS('."$lat".')))) AS jarak')
         )
         ->havingRaw('jarak < 6371')
@@ -96,7 +96,7 @@ class DestinationController extends Controller
         */
 
         $results = Destinations::leftjoin('destination_details', 'destinations.id', '=', 'destination_details.id_dest')
-        ->select(Destinations::raw('destinations.id,name_dest,latitude,longitude,description,thumb_img,address,entrance_ticket,
+        ->select(Destinations::raw('destinations.id,name_dest,slug,latitude,longitude,description,thumb_img,address,entrance_ticket,
         (6371 * ACOS(SIN(RADIANS(latitude)) * SIN(RADIANS('."$lat".')) + COS(RADIANS(longitude - '."$lng".')) * COS(RADIANS(latitude)) * COS(RADIANS('."$lat".')))) AS jarak')
         )
         ->havingRaw('jarak < 6371')
@@ -114,6 +114,7 @@ class DestinationController extends Controller
         $results = Destinations::leftjoin('destination_details', 'destinations.id', '=', 'destination_details.id_dest')
                 ->get(['destinations.id',
                         'destinations.name_dest',
+                        'destinations.slug',
                         'destinations.latitude',
                         'destinations.longitude',
                         'destinations.thumb_img',
