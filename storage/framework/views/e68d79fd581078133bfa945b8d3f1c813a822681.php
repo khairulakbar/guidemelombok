@@ -1,0 +1,1 @@
+<?php echo e(echo $user->id;); ?><?php /**PATH D:\Laravel\guidemelombok\resources\views/testing.blade.php ENDPATH**/ ?>

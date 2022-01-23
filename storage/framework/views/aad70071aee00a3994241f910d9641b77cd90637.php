@@ -1,0 +1,1 @@
+<?php echo e($user->token); ?><?php /**PATH D:\Laravel\guidemelombok\resources\views/testing.blade.php ENDPATH**/ ?>

@@ -23,17 +23,11 @@ Route::get('/', function () {
 //Route::get('/admin/login', 'AdminController@login');
 //Route::post('/admin/proseslogin', 'AdminController@proseslogin');
 
+//Route::get('/admin/destinasi/tes/{id}','AdminController@tes');
+
 Route::get('/admin/destinasi', 'AdminController@desty')->name('/admin/destinasi');
 Route::get('/admin/destinasi/add', 'AdminController@add');
 Route::post('/admin/destinasi/store','AdminController@store');
 Route::get('/admin/destinasi/edit/{id}','AdminController@edit');
 Route::put('/admin/destinasi/update/{id}','AdminController@update');
 Route::get('/admin/destinasi/hapus/{id}','AdminController@hapus');
-
-Route::get('/admin/destinasi/tes/{id}','AdminController@tes');
-
-
-
-
-
-
