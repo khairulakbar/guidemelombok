@@ -30,7 +30,7 @@ Route::get('/admin/destinasi/edit/{id}','AdminController@edit');
 Route::put('/admin/destinasi/update/{id}','AdminController@update');
 Route::get('/admin/destinasi/hapus/{id}','AdminController@hapus');
 
-//Route::get('/admin/destinasi/tes/{id}','AdminController@tes');
+Route::get('/admin/destinasi/tes/{id}','AdminController@tes');
 
 
 
