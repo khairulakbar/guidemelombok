@@ -7,6 +7,10 @@ use App\Models\Destinations;
 
 class DestinationController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {
         //$split = explode(",",$koordinat);
