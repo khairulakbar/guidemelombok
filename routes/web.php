@@ -14,8 +14,8 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', function () {
-    //return view('welcome');
-    return redirect('/admin/destinasi');
+    return view('welcome');
+    //return redirect('/admin/destinasi');
 });
 
 
@@ -31,3 +31,4 @@ Route::post('/admin/destinasi/store','AdminController@store');
 Route::get('/admin/destinasi/edit/{id}','AdminController@edit');
 Route::put('/admin/destinasi/update/{id}','AdminController@update');
 Route::get('/admin/destinasi/hapus/{id}','AdminController@hapus');
+
