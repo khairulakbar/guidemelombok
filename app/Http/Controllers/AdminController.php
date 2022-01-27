@@ -72,7 +72,7 @@ class AdminController extends Controller
         //$dest = Destinations::find($id);
         $dest =  Destinations::join('destination_details', 'destinations.id', '=', 'destination_details.id_dest')
         ->join('access', 'destinations.id', '=', 'access.id_dest')
-        ->where('destinations.id','=',"$id")
+        ->where('destinations.id','=',$id)
         ->select(['destinations.*','destination_details.description','destination_details.address','destination_details.entrance_ticket',
                 'access.car','access.motor','access.boat','access.walk'])
         ->first();
