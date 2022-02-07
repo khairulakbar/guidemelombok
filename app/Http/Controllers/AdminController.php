@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Destinations as Destinations;
 use App\Models\Destination_details as Destination_details;
 use App\Models\Access as Access;
+use App\Models\Facilities as Facilities;
 
 use JWTAuth;
 
@@ -72,9 +73,11 @@ class AdminController extends Controller
         //$dest = Destinations::find($id);
         $dest =  Destinations::join('destination_details', 'destinations.id', '=', 'destination_details.id_dest')
         ->join('access', 'destinations.id', '=', 'access.id_dest')
+        ->join('facilities', 'destinations.id', '=', 'facilities.id_dest')
         ->where('destinations.id','=',$id)
         ->select(['destinations.*','destination_details.description','destination_details.address','destination_details.entrance_ticket',
-                'access.car','access.motor','access.boat','access.walk'])
+                'access.car','access.motor','access.boat','access.walk',
+                'facilities.toilet','facilities.parking','facilities.mosque','facilities.foodcourt'])
         ->first();
 
         return view('destination_edit', ['destinations' => $dest]);
@@ -96,6 +99,7 @@ class AdminController extends Controller
         $dest = Destinations::find($id);
         $dest2 = Destination_details::find($id);
         $dest3 = Access::find($id);
+        $dest4 = Facilities::find($id);
 
         $dest->name_dest = $request->name_dest;
         $dest->slug = $request->slug;
@@ -111,12 +115,18 @@ class AdminController extends Controller
         $dest3->motor = $request->motor;
         $dest3->boat = $request->boat;
         $dest3->walk = $request->walk;
+
+        $dest4->toilet = $request->toilet;
+        $dest4->parking = $request->parking;
+        $dest4->mosque = $request->mosque;
+        $dest4->foodcourt = $request->foodcourt;
         
         
         
         $dest->save();
         $dest2->save();
         $dest3->save();
+        $dest4->save();
  
 
         // alihkan halaman ke halaman list

@@ -55,7 +55,7 @@
                         <label>Access</label>
                         <div class="form-check">
                             @if($destinations->car == 1 )
-                            <input class="form-check-input" type="checkbox" value="0" name="car" id="car" checked>
+                            <input class="form-check-input" type="checkbox" value='{{ $destinations->car }}' name="car" id="car" checked>
                             <label class="form-check-label" for="car">
                                 Car
                             </label>
@@ -68,7 +68,7 @@
                         </div>
                         <div class="form-check">
                             @if($destinations->motor == 1 )
-                            <input class="form-check-input" type="checkbox" value="0" name="motor" id="motor" checked>
+                            <input class="form-check-input" type="checkbox" value='{{ $destinations->motor }}' name="motor" id="motor" checked>
                             <label class="form-check-label" for="motor">
                                 Motorcycle
                             </label>
@@ -81,7 +81,7 @@
                         </div>
                         <div class="form-check">
                             @if($destinations->boat == 1 )
-                            <input class="form-check-input" type="checkbox" value="0" name="boat" id="boat" checked>
+                            <input class="form-check-input" type="checkbox" value='{{ $destinations->boat }}' name="boat" id="boat" checked>
                             <label class="form-check-label" for="boat">
                                 Boat
                             </label>
@@ -95,7 +95,7 @@
 
                         <div class="form-check">
                             @if($destinations->walk == 1 )
-                            <input class="form-check-input" type="checkbox" value="0" name="walk" id="walk" checked>
+                            <input class="form-check-input" type="checkbox" value='{{ $destinations->walk }}' name="walk" id="walk" checked>
                             <label class="form-check-label" for="walk">
                                 Walk
                             </label>
@@ -108,6 +108,65 @@
                         </div>
 
                         <br>
+                        
+                        <label>Facilities</label>
+                        <div class="form-check">
+                            @if($destinations->toilet == 1 )
+                            <input class="form-check-input" type="checkbox" value='{{ $destinations->toilet }}' name="toilet" id="toilet" checked>
+                            <label class="form-check-label" for="toilet">
+                                Toilet
+                            </label>
+                            @else
+                            <input class="form-check-input" type="checkbox" value="1" name="toilet" id="toilet">
+                            <label class="form-check-label" for="toilet">
+                                Toilet
+                            </label>
+                            @endif
+                        </div>
+
+                        <div class="form-check">
+                            @if($destinations->parking == 1 )
+                            <input class="form-check-input" type="checkbox" value='{{ $destinations->parking }}' name="parking" id="parking" checked>
+                            <label class="form-check-label" for="parking">
+                            Parking
+                            </label>
+                            @else
+                            <input class="form-check-input" type="checkbox" value="1" name="parking" id="parking">
+                            <label class="form-check-label" for="parking">
+                            Parking
+                            </label>
+                            @endif
+                        </div>
+
+                        <div class="form-check">
+                            @if($destinations->mosque == 1 )
+                            <input class="form-check-input" type="checkbox" value='{{ $destinations->mosque }}' name="mosque" id="mosque" checked>
+                            <label class="form-check-label" for="mosque">
+                            mosque
+                            </label>
+                            @else
+                            <input class="form-check-input" type="checkbox" value="1" name="mosque" id="mosque">
+                            <label class="form-check-label" for="mosque">
+                            mosque
+                            </label>
+                            @endif
+                        </div>
+
+                        <div class="form-check">
+                            @if($destinations->foodcourt == 1 )
+                            <input class="form-check-input" type="checkbox" value='{{ $destinations->foodcourt }}' name="foodcourt" id="foodcourt" checked>
+                            <label class="form-check-label" for="foodcourt">
+                            foodcourt
+                            </label>
+                            @else
+                            <input class="form-check-input" type="checkbox" value="1" name="foodcourt" id="foodcourt">
+                            <label class="form-check-label" for="foodcourt">
+                            foodcourt
+                            </label>
+                            @endif
+                        </div>
+                        <br>
+
 
                         <label>Description</label>
                         <textarea id="description_editor" name="description" class="form-control" rows="10" cols="50"> {{ $destinations->description }}</textarea>
