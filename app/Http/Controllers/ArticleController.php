@@ -52,7 +52,7 @@ class ArticleController extends Controller
     {
 
         $results = Articles::leftjoin('article_categories', 'articles.category_id', '=', 'article_categories.id')
-            ->where('articles.article-slug', '=', "$slug")
+            ->where('articles.article_slug', '=', "$slug")
             ->get(['articles.*', 'article_categories.category']);
 
         return response()->json([
