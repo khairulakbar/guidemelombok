@@ -31,4 +31,6 @@ Route::get('/destination/{name}', 'DestinationController@dest_search');
 Route::get('/destination/detail/{slug}', 'DestinationController@dest_detail');
 
 //article routes
+Route::get('/article/latest/', 'ArticleController@latest_article');
 Route::get('/articles', 'ArticleController@article_list');
+Route::get('/article/detail/{slug}', 'ArticleController@full_article');
