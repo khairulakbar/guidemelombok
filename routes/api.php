@@ -34,13 +34,13 @@ Route::get('/destination/detail/{slug}', 'DestinationController@dest_detail');
 Route::get('/article/latest/', 'ArticleController@latest_article');
 Route::get('/articles', 'ArticleController@article_list');
 Route::get('/article/detail/{slug}', 'ArticleController@full_article');
-Route::post('/article','ArticleController@addArticle');
-Route::put('/article/{id}','ArticleController@updateArticle');
-Route::get('/article/{id}','ArticleController@deleteArticle');
+Route::post('/article','ArticleController@addArticle')->middleware('jwt.verify');
+Route::put('/article/{id}','ArticleController@updateArticle')->middleware('jwt.verify');
+Route::get('/article/{id}','ArticleController@deleteArticle')->middleware('jwt.verify');
 
 //Promo
 Route::get('/promos', 'PromoController@promo_list');
 Route::get('/promo/detail/{slug}', 'PromoController@detailPromo');
-Route::post('/promo','PromoController@addPromo');
-Route::put('/promo/{id}','PromoController@updatePromo');
-Route::get('/promo/{id}','PromoController@deletePromo');
+Route::post('/promo','PromoController@addPromo')->middleware('jwt.verify');
+Route::put('/promo/{id}','PromoController@updatePromo')->middleware('jwt.verify');
+Route::get('/promo/{id}','PromoController@deletePromo')->middleware('jwt.verify');
