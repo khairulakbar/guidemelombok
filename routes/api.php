@@ -20,6 +20,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 //webconfig
 Route::get('/config', 'AdminController@webconf');
+Route::put('/config/{id}', 'AdminController@updatewebconf')->middleware('jwt.verify');
 
 Route::post('/register', 'UserController@register');
 Route::post('/login', 'UserController@login');

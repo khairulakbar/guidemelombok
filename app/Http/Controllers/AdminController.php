@@ -28,6 +28,23 @@ class AdminController extends Controller
         ]);
 
     }
+
+    public function updatewebconf($id, Request $request){
+
+        $conf = Webconfig::find($id);
+
+        $conf->modal = $request->modal;
+        $conf->modal_img = $request->modal_img;
+        $conf->modal_url = $request->modal_url;
+
+        $conf->save();
+
+        return response()->json([
+            'type' => 'success',
+            'message' => 'Data Berhasil diupdate!',
+        ]);
+
+    }
     
     public function desty()
     {
@@ -42,7 +59,6 @@ class AdminController extends Controller
         
         $dest = Destinations::all();
         
-
             // mengirim data destinations ke view index
         return view('index', ['destinations' => $dest]);
         
