@@ -10,12 +10,24 @@ use App\Models\Destinations as Destinations;
 use App\Models\Destination_details as Destination_details;
 use App\Models\Access as Access;
 use App\Models\Facilities as Facilities;
+use App\Models\Webconfig as Webconfig;
 
 use JWTAuth;
 
 class AdminController extends Controller
 {
     //
+
+    public function webconf(){
+
+        $results = Webconfig::all();
+        return response()->json([
+            'status' => true,
+            'msg' => "Oke",
+            'conf_list' => $results
+        ]);
+
+    }
     
     public function desty()
     {
